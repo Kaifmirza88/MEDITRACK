@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medicine Reminder</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Animated liquid background -->
+    <div class="background">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar glass">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                💊
+            </div>
+
+            <div>
+                <h2>MediTrack</h2>
+                <span>Medicine Reminder</span>
+            </div>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="#dashboard" class="active">
+                Dashboard
+            </a>
+
+            <a href="#medicines">
+                Medicines
+            </a>
+
+            <a href="#reminders">
+                Reminders
+            </a>
+
+            <a href="#history">
+                History
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <main>
+
+
+        <!-- ================= HERO ================= -->
+
+        <section id="dashboard" class="hero-section">
+
+            <div class="hero glass">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        <span class="pulse-dot"></span>
+                        YOUR HEALTH • YOUR SCHEDULE
+                    </div>
+
+                    <h1>
+                        Never miss a
+                        <span>medicine.</span>
+                    </h1>
+
+                    <p>
+                        Keep your medication schedule organized,
+                        stay consistent, and let your reminder system
+                        handle the clock.
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#medicines"
+                            class="primary-btn"
+                        >
+                            <span>＋</span>
+                            Add Medicine
+                        </a>
+
+                        <a
+                            href="#reminders"
+                            class="secondary-btn"
+                        >
+                            View Reminders
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-orb">
+
+                    <div class="orb-ring ring-1"></div>
+                    <div class="orb-ring ring-2"></div>
+
+                    <div class="medicine-orb">
+                        💊
+                    </div>
+
+                    <div class="floating-pill pill-one">
+                        ✓
+                    </div>
+
+                    <div class="floating-pill pill-two">
+                        ⏰
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-label">
+                        OVERVIEW
+                    </span>
+
+                    <h2>
+                        Your medication dashboard
+                    </h2>
+                </div>
+
+                <div class="live-status">
+                    <span></span>
+                    System Active
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+
+                <!-- Medicine Count -->
+
+                <div class="stat-card glass">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon purple">
+                            💊
+                        </div>
+
+                        <span class="stat-badge">
+                            Today
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Today's Medicines
+                    </p>
+
+                    <h3 id="medicineCount">
+                        0
+                    </h3>
+
+                </div>
+
+
+                <!-- Taken -->
+
+                <div class="stat-card glass">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon green">
+                            ✓
+                        </div>
+
+                        <span class="stat-badge success">
+                            Completed
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Medicines Taken
+                    </p>
+
+                    <h3 id="takenCount">
+                        0
+                    </h3>
+
+                </div>
+
+
+                <!-- Missed -->
+
+                <div class="stat-card glass">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon orange">
+                            !
+                        </div>
+
+                        <span class="stat-badge warning">
+                            Attention
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Missed Medicines
+                    </p>
+
+                    <h3 id="missedCount">
+                        0
+                    </h3>
+
+                </div>
+
+
+                <!-- Next reminder -->
+
+                <div class="stat-card glass">
+
+                    <div class="stat-top">
+
+                        <div class="stat-icon blue">
+                            ⏰
+                        </div>
+
+                        <span class="stat-badge">
+                            Upcoming
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Next Reminder
+                    </p>
+
+                    <h3
+                        id="nextReminder"
+                        class="next-time"
+                    >
+                        No reminder
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MEDICINES ================= -->
+
+        <section
+            id="medicines"
+            class="section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        MEDICATION
+                    </span>
+
+                    <h2>
+                        Manage your medicines
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <!-- Add Medicine Glass Panel -->
+
+            <div class="glass add-panel">
+
+                <div class="panel-title">
+
+                    <div class="panel-icon">
+                        ＋
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Add New Medicine
+                        </h3>
+
+                        <p>
+                            Set a medicine and its reminder time.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+
+                        <label>
+                            Medicine Name
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>💊</span>
+
+                            <input
+                                type="text"
+                                id="medicineName"
+                                placeholder="e.g. Paracetamol"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Dosage
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>◉</span>
+
+                            <input
+                                type="text"
+                                id="dosage"
+                                placeholder="e.g. 500 mg"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>
+                            Reminder Time
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <span>⏰</span>
+
+                            <input
+                                type="time"
+                                id="medicineTime"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="add-button"
+                    onclick="addMedicine()"
+                >
+
+                    <span>＋</span>
+
+                    Add Medicine
+
+                </button>
+
+            </div>
+
+
+            <!-- Medicine List -->
+
+            <div class="list-header">
+
+                <div>
+
+                    <span class="section-label">
+                        YOUR MEDICATION
+                    </span>
+
+                    <h3>
+                        Medicine List
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="medicineList"
+                class="medicine-list"
+            >
+
+                <div class="empty-state glass">
+
+                    <div class="empty-icon">
+                        💊
+                    </div>
+
+                    <h3>
+                        Loading medicines...
+                    </h3>
+
+                    <p>
+                        Your medication list will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REMINDERS ================= -->
+
+        <section
+            id="reminders"
+            class="section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        SCHEDULE
+                    </span>
+
+                    <h2>
+                        Upcoming reminders
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="reminderList"
+                class="reminder-list"
+            >
+
+                <div class="empty-state glass">
+
+                    <div class="empty-icon">
+                        ⏰
+                    </div>
+
+                    <h3>
+                        Loading reminders...
+                    </h3>
+
+                    <p>
+                        Your upcoming reminders will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HISTORY ================= -->
+
+        <section
+            id="history"
+            class="section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACTIVITY
+                    </span>
+
+                    <h2>
+                        Medicine history
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="glass history-card">
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Medicine
+                                </th>
+
+                                <th>
+                                    Dosage
+                                </th>
+
+                                <th>
+                                    Reminder
+                                </th>
+
+                                <th>
+                                    Taken At
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="historyTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+<section id="healthTracker" class="glass" style="padding: 24px; margin: 30px 0;">
+    <h2>Patient Health Tracker</h2>
+    <p>Record health measurements and review previous entries.</p>
+
+   
+<form id="healthForm"
+      style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin-top:24px;">
+    <div class="health-field"
+     style="display:flex; flex-direction:column; gap:8px; min-width:0;">
+        <label for="healthAge">Age</label>
+        <input id="healthAge" type="number" min="0" required>
+    </div>
+
+    <div class="health-field"
+     style="display:flex; flex-direction:column; gap:8px; min-width:0;">
+        <label for="healthWeight">Weight (kg)</label>
+        <input id="healthWeight" type="number" min="0" step="0.1" required>
+    </div>
+
+   <div class="health-field"
+     style="display:flex; flex-direction:column; gap:8px; min-width:0;">
+        <label for="healthBMI">BMI</label>
+        <input id="healthBMI" type="number" min="0" step="0.1" required>
+    </div>
+
+    <div class="health-field"
+     style="display:flex; flex-direction:column; gap:8px; min-width:0;">
+        <label for="healthSystolic">Systolic Blood Pressure</label>
+        <input id="healthSystolic" type="number" min="0" required>
+    </div>
+
+    <div class="health-field"
+     style="display:flex; flex-direction:column; gap:8px; min-width:0;">
+        <label for="healthDiastolic">Diastolic Blood Pressure</label>
+        <input id="healthDiastolic" type="number" min="0" required>
+    </div>
+
+    <div class="health-field"
+     style="display:flex; flex-direction:column; gap:8px; min-width:0;">
+        <label for="healthHeartRate">Heart Rate (bpm)</label>
+        <input id="healthHeartRate" type="number" min="0" step="0.1" required>
+    </div>
+
+    <div class="health-field"
+     style="display:flex; flex-direction:column; gap:8px; min-width:0;">
+        <label for="healthGlucose">Glucose (mg/dL)</label>
+        <input id="healthGlucose" type="number" min="0" step="0.1" required>
+    </div>
+
+    <div class="health-field"
+     style="display:flex; flex-direction:column; gap:8px; min-width:0;">
+        <button type="submit">Save Health Record</button>
+    </div>
+</form>
+
+    <p id="healthMessage" role="status"></p>
+
+    <h3>Upload a Health Report (CSV)</h3>
+    <input id="healthCsv" type="file" accept=".csv">
+    <button type="button" onclick="analyzeHealthCSV()">
+        Analyze with Pandas
+    </button>
+
+    <h3>Statistical Summary: df.describe()</h3>
+    <div id="healthSummary"></div>
+
+    <h3>Blood Pressure History</h3>
+    <canvas id="bpChart"></canvas>
+
+    <h3>Heart Rate History</h3>
+    <canvas id="heartRateChart"></canvas>
+
+    <h3>Health Record History</h3>
+    <div id="healthHistory"></div>
+</section>
+
+
+<h3>Health Report Visualizations</h3>
+
+<div class="health-charts">
+    <div class="chart-card">
+        <h3>Blood Pressure Comparison</h3>
+        <canvas id="csvBPChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>Heart Rate</h3>
+        <canvas id="csvHeartChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+        <h3>BMI Distribution</h3>
+        <canvas id="csvBMIChart"></canvas>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="glass footer">
+
+        <div class="footer-brand">
+
+            <div class="brand-icon">
+                💊
+            </div>
+
+            <div>
+
+                <strong>
+                    Mediora
+                </strong>
+
+                <span>
+                    Medicine Reminder System
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            Built with HTML • CSS • JavaScript • Flask • SQLite
+        </p>
+
+        <p>
+            © 2026 Medicine Reminder System
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
